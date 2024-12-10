@@ -1,0 +1,89 @@
+import React, { useEffect, useState } from 'react';
+import { useCart } from './CartContext';
+import { Link } from 'react-router-dom';
+import './Productos.css';
+import Cart from './Carrito';
+
+//Comienzo de carrito
+const Index = () => {
+  const [products, setProducts] = useState([]);
+  const { cart, addToCart } = useCart(); // Usar el hook para obtener cart y addToCart
+
+  // Simulación de datos desde una base de datos
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const data = [
+        { id: 1, name: 'Taza de Ballena', price: 500, image: 'https://www.eltigreazul.com.ar/wp-content/uploads/2022/08/Taza-Ballena-Cuadrada.jpg' },
+        { id: 2, name: 'Taza la Bella y la Bestia', price: 800, image: 'https://dcdn.mitiendanube.com/stores/226/833/products/47dcef99-a3de-4b47-9441-8a364111d3261-b629fcd965070dbede16470257672822-640-0.jpeg' },
+        { id: 3, name: 'Taza Buenos Aires', price: 1200, image: 'https://acdn.mitiendanube.com/stores/004/014/914/products/taza-flo-meije-6-69052103c16408d30317069049205004-1024-1024.jpg' },
+      ];
+      setProducts(data);
+    };
+    fetchProducts();
+  }, []);
+
+  //const addToCart = (product) => {
+  //  setCart((prevCart) => [...prevCart, product]);
+  //};
+//FINALIZACION CARRITO
+
+  return (
+      <main className="content">
+        <h1>Vista Tazas Pesonalizadas</h1>
+        <div className="Productos">
+          <h2>Nuestros Paquetes</h2>
+          <div style={styles.grid}>
+            {products.map((product) => (
+              <div
+                key={product.id}
+                style={{
+                  ...styles.card,
+                  backgroundImage: `url(${product.image})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                }}
+              >
+                <div style={styles.overlay}>
+                  <h3>{product.name}</h3>
+                  <p>Precio: ${product.price}</p>
+                  <button onClick={() => addToCart(product)}>Añadir al carrito</button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </main>
+      /* <aside className="sidebar"><Cart cart={cart}></Cart></aside> */
+  );
+};
+
+//STYLES productos
+const styles = {
+  grid: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(15rem, 1fr))',
+    gap: '3rem',
+    padding: '3rem',
+  },
+  card: {
+    border: '1rem solid #ccc',
+    borderRadius: '3rem',
+    padding: '2rem',
+    textAlign: 'center',
+    color: '#fff',
+    height: '15rem',
+    width: '15rem',
+    position: 'relative',
+    overflow: 'hidden',
+  },
+  overlay: {
+    backgroundColor: 'rgba(0, 0, 0, 0.6)',
+    position: 'absolute',
+    bottom: 0,
+    width: '100%',
+    padding: '1rem',
+  },
+};
+//STYLES productos
+
+export default Index;
