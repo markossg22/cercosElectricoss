@@ -8,7 +8,7 @@ import Carrito from './Carrito';
 import './Index.css';
 import LoginForm from './LoginForm';
 import RegisterForm from './RegisterForm';
-
+import Button from 'react-bootstrap/Button';
 
 const Index = () => {
 
@@ -18,15 +18,15 @@ const Index = () => {
     switch (currentView) {
       case 'inicio':
         return (
-      <main className="content">
-        <h1>Vista Index</h1>
-        <div className="carousel">
-          <img src={images[currentSlide].src} alt="Taza" className="carousel-image" />
-          <div className="carousel-text">{images[currentSlide].text}</div>
-        </div>
-        <h1>Las mejores tazas de todo Tucumán</h1>
-        <h3>Lorem ipsum dolor sit amet consectetur adipiscing elit at potenti mauris diam, vestibulum duis odio sagittis ad egestas cras fames pulvinar tristique feugiat nulla, blandit mattis id viverra placerat maecenas sem lobortis suspendisse laoreet. Ac posuere dis tristique nullam nunc vel potenti erat, enim bibendum cursus orci a faucibus phasellus, platea porta sed praesent lobortis nisi at. Facilisis himenaeos iaculis orci mauris id vulputate aliquam nibh enim, dis egestas fusce imperdiet torquent leo neque quis ullamcorper, dui vestibulum class fermentum lobortis natoque condimentum fames.</h3>
-        </main>
+          <main className="content">
+            <h1>Vista Index</h1>
+            <div className="carousel">
+              <img src={images[currentSlide].src} alt="Taza" className="carousel-image" />
+              <div className="carousel-text">{images[currentSlide].text}</div>
+            </div>
+            <h1>Las mejores tazas de todo Tucumán</h1>
+            <h3>Lorem ipsum dolor sit amet consectetur adipiscing elit...</h3>
+          </main>
         );
       case 'quienes-somos':
         return <QuienesSomos />;
@@ -43,12 +43,11 @@ const Index = () => {
     }
   };
 
-  //carrusel
-
+  // Carrusel
   const images = [
-    { src: 'https://swiperjs.com/demos/images/nature-1.jpg', text: 'Las Mejores Tazas de Tucumán' },
-    { src: 'https://swiperjs.com/demos/images/nature-2.jpg', text: 'Calidad Asegurada' },
-    { src: 'https://swiperjs.com/demos/images/nature-3.jpg', text: 'Variedad de modelos' },
+    { src: 'https://www.exasrl.com/assets/productos/cercos/exa-cercos-electricos-2.jpg', text: 'Las Mejores Tazas de Tucumán' },
+    { src: 'https://www.verisure.com.ar/sites/ar/files/flmngr/drupal/blog/cerco-2024.png', text: 'Calidad Asegurada' },
+    { src: 'https://uss.com.ar/sitio/wp-content/uploads/2018/10/cercos-electricos-para-empresas.jpg', text: 'Variedad de modelos' },
   ];
 
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -56,40 +55,44 @@ const Index = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % images.length);
-    }, 8000); // Cambia cada 3 segundos
+    }, 8000); // Cambia cada 8 segundos
 
     return () => clearInterval(interval); // Limpia el intervalo al desmontar
   }, [images.length]);
-
-  // fin de carrusel
 
   return (
     <div className="grid-container">
       <header className="header">Mundo Tazas</header>
       <nav className="menu">
-      <button onClick={() => setCurrentView('login')} className="menu-button">
+        <button onClick={() => setCurrentView('login')} className="menu-button">
           Cuenta
-      </button>
-      <button onClick={() => setCurrentView('inicio')} className="menu-button">
+        </button>
+        <button onClick={() => setCurrentView('inicio')} className="menu-button">
           Inicio
-      </button>
-      <button onClick={() => setCurrentView('quienes-somos')} className="menu-button">
+        </button>
+        <button onClick={() => setCurrentView('quienes-somos')} className="menu-button">
           ¿Quiénes Somos?
-      </button>
-      <button onClick={() => setCurrentView('productos')} className="menu-button">
+        </button>
+        <button onClick={() => setCurrentView('productos')} className="menu-button">
           Productos
-      </button>
-      <button onClick={() => setCurrentView('donde-estamos')} className="menu-button">
+        </button>
+        <button onClick={() => setCurrentView('donde-estamos')} className="menu-button">
           Donde Estamos
-      </button>
-      <button onClick={() => setCurrentView('carrito')} className="menu-button">
+        </button>
+        <button onClick={() => setCurrentView('carrito')} className="menu-button">
           Carrito de Compras
-      </button>
-    </nav>
+        </button>
+      </nav>
+
+      {/* Carrusel como fondo */}
+      <div className="carousel-background">
+        <img src={images[currentSlide].src} alt="Carrusel" className="carousel-background-image" />
+      </div>
+
       <main className="content">
-      {renderView()}
-     </main>
-      <aside className="sidebar">Espacio para publicidad</aside>
+        {renderView()}
+      </main>
+
       <footer className="footer">Pie de Página</footer>
     </div>
   );

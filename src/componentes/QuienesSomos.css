@@ -49,16 +49,6 @@
     padding: 1rem;
   }
   
-  .footer {
-    grid-area: footer;
-    background-color: var(--ColCuar);
-    color: white;
-    font-family: var(--Font1);
-    font-size: 2rem;
-    text-align: center;
-    padding: 1rem;
-  }
-  
 /* Estilo del botón del menú */
 .menu {
   display: flex;

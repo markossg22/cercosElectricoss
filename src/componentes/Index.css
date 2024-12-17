@@ -1,29 +1,43 @@
 :root {
-    --ColPrim: #A5B68D;
-    --ColSec: #ECDFCC;
-    --ColTer: #FCFAEE;
-    --ColCuar: #DA8359;
+    --ColPrim: rgb(255, 222, 0);
+    --ColSec: rgb(211, 103, 31);
+    --ColTer: rgb(255, 222, 0);
+    --ColCuar: rgb(255, 222, 0);
     --Font1: "Qwitcher Grypen", cursive;
     --Font2: "Comfortaa", sans-serif;
 }
 
-.grid-container {
-    display: grid;
-    grid-template-areas:
-      "header header header"
-      "menu content sidebar"
-      "footer footer footer";
-    grid-template-columns: 1fr 3fr 1fr;
-    grid-template-rows: auto 1fr auto;
-    height: 100vh;
-  }
-  .content {
-    grid-area: content;
-    font-family: var(--Font2);
-    text-align: center;
-    padding: 0;
-  }
 
-  .button {
-    color: black;
-  }
+/* Estilos generales para el carrusel de fondo */
+.carousel-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Coloca el carrusel detrás del contenido */
+  overflow: hidden;
+}
+
+.carousel-background-image {
+  filter: blur(4px);
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Hace que la imagen cubra todo el área */
+  opacity: 0.7; /* Hace que el fondo sea ligeramente transparente */
+}
+
+/* Asegurando que el contenido esté encima del fondo */
+.content {
+  position: relative;
+  z-index: 1; /* Asegura que el contenido esté encima del fondo */
+  color: white; /* Ajuste del color de texto para visibilidad */
+  padding: 20px;
+}
+
+/* Opcional: Estilos adicionales */
+.header, .menu, .footer {
+  z-index: 1; /* Asegura que estos elementos se ubiquen encima del fondo */
+}
+
+  

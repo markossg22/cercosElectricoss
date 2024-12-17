@@ -38,7 +38,7 @@ function LoginForm() {
   };
 
   return (
-    <div className="wrapper">
+    <div className="login-content">
       {userInfo ? ( // Vista condicional
         <div className="user-info">
           <h1>Bienvenido, {username}</h1>

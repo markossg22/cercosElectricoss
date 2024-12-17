@@ -1,11 +1,4 @@
-:root {
-    --ColPrim: #A5B68D;
-    --ColSec: #ECDFCC;
-    --ColTer: #FCFAEE;
-    --ColCuar: #DA8359;
-    --Font1: "Qwitcher Grypen", cursive;
-    --Font2: "Comfortaa", sans-serif;
-}
+
 
 .grid-container {
     display: grid;
@@ -25,13 +18,6 @@
     font-family: var(--Font1);
     font-size: 4rem;
     text-align: center;
-    padding: 1rem;
-  }
-  
-  .menu {
-    grid-area: menu;
-    background-color: var(--ColSec);
-    font-family: var(--Font2);
     padding: 1rem;
   }
   
@@ -59,28 +45,6 @@
     padding: 1rem;
   }
   
-/* Estilo del botón del menú */
-.menu {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-}
-
-.menu button {
-  background-color: var(--ColSec);
-  border: none;
-  border-radius: 1rem;
-  padding: 1rem 2rem;
-  cursor: pointer;
-  font-size: 2rem;
-  width: 100%;
-}
-
-.menu button:hover {
-  background-color: var(--ColTer);
-}
-
 .carousel {
   position: relative;
   width: 100%;

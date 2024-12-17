@@ -1,11 +1,3 @@
-:root {
-    --ColPrim: #A5B68D;
-    --ColSec: #ECDFCC;
-    --ColTer: #FCFAEE;
-    --ColCuar: #DA8359;
-    --Font1: "Qwitcher Grypen", cursive;
-    --Font2: "Comfortaa", sans-serif;
-}
 
 .grid-container {
     display: grid;
@@ -49,38 +41,6 @@
     padding: 1rem;
   }
   
-  .footer {
-    grid-area: footer;
-    background-color: var(--ColCuar);
-    color: white;
-    font-family: var(--Font1);
-    font-size: 2rem;
-    text-align: center;
-    padding: 1rem;
-  }
-  
-/* Estilo del botón del menú */
-.menu {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-}
-
-.menu button {
-  background-color: var(--ColSec);
-  border: none;
-  border-radius: 1rem;
-  padding: 1rem 2rem;
-  cursor: pointer;
-  font-size: 2rem;
-  width: 100%;
-}
-
-.menu button:hover {
-  background-color: var(--ColTer);
-}
-
 /* Productos Gridlayout */
 
 .product-grid {
@@ -123,9 +83,25 @@ button {
   padding: 10px 15px;
   cursor: pointer;
   border-radius: 4px;
-  margin-top: 10px;
 }
 
 button:hover {
   background-color: #e5533d;
 }
+
+
+.menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-button {
+  color: white;
+  transition: color 0.3s ease-in-out, border-radius 0.3s ease-in-out; 
+}
+
+.menu-button:hover {
+  border-radius: 3rem;
+  color: var(--ColSec); 
+}
+
