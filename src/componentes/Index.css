@@ -1,0 +1,29 @@
+:root {
+    --ColPrim: #A5B68D;
+    --ColSec: #ECDFCC;
+    --ColTer: #FCFAEE;
+    --ColCuar: #DA8359;
+    --Font1: "Qwitcher Grypen", cursive;
+    --Font2: "Comfortaa", sans-serif;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-areas:
+      "header header header"
+      "menu content sidebar"
+      "footer footer footer";
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: auto 1fr auto;
+    height: 100vh;
+  }
+  .content {
+    grid-area: content;
+    font-family: var(--Font2);
+    text-align: center;
+    padding: 0;
+  }
+
+  .button {
+    color: black;
+  }

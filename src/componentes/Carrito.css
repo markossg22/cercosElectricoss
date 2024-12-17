@@ -1,0 +1,140 @@
+:root {
+    --ColPrim: #A5B68D;
+    --ColSec: #ECDFCC;
+    --ColTer: #FCFAEE;
+    --ColCuar: #DA8359;
+    --Font1: "Qwitcher Grypen", cursive;
+    --Font2: "Comfortaa", sans-serif;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-areas:
+      "header header header"
+      "menu content sidebar"
+      "footer footer footer";
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: auto 1fr auto;
+    height: 100vh;
+  }
+  
+  .header {
+    grid-area: header;
+    background-color:var(--ColPrim);
+    color: white;
+    font-family: var(--Font1);
+    font-size: 4rem;
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  .menu {
+    grid-area: menu;
+    background-color: var(--ColSec);
+    font-family: var(--Font2);
+    padding: 1rem;
+  }
+  
+  .content {
+    grid-area: content;
+    font-family: var(--Font2);
+    text-align: center;
+    padding: 0;
+  }
+  
+  .sidebar {
+    grid-area: sidebar;
+    background-color: var(--ColSec);
+    font-family: var(--Font2);
+    padding: 1rem;
+  }
+  
+  .footer {
+    grid-area: footer;
+    background-color: var(--ColCuar);
+    color: white;
+    font-family: var(--Font1);
+    font-size: 2rem;
+    text-align: center;
+    padding: 1rem;
+  }
+  
+/* Estilo del botón del menú */
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.menu button {
+  background-color: var(--ColSec);
+  border: none;
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  font-size: 2rem;
+  width: 100%;
+}
+
+.menu button:hover {
+  background-color: var(--ColTer);
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 40rem;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 1.5s ease-in-out;}
+
+.carousel-text {
+  position: absolute;
+  color: black;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  background: var(--ColPrim);
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  bottom: 2rem;
+}
+
+/*Estilo del carrito*/
+
+.Carrito ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .Carrito li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .Carrito button {
+    margin-left: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4rem;
+    cursor: pointer;
+  }
+  
+  .Carrito button:hover {
+    background-color: #0056b3;
+  }
+  
